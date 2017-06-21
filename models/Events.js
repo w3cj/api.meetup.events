@@ -4,13 +4,13 @@ const moment = require('moment');
 const eventSchema = Joi.object().keys({
   title: Joi.string().required(),
   description: Joi.string().required(),
-  image: Joi.string().uri().required(),
   date: Joi.date().required(),
   start_time: Joi.date().required(),
   end_time: Joi.date().required(),
   url: Joi.string().uri().required(),
   address: Joi.string().required(),
   location_name: Joi.string().required(),
+  image: Joi.string().uri(),
   meetup_name: Joi.string(),
   price: Joi.string()
 });
