@@ -1,21 +1,9 @@
 const monk = require('monk');
-const Joi = require('joi');
 const moment = require('moment');
 
-const eventSchema = Joi.object().keys({
-  title: Joi.string().required(),
-  description: Joi.string().required(),
-  date: Joi.date().required(),
-  start_time: Joi.date().required(),
-  url: Joi.string().uri().required(),
-  address: Joi.string(),
-  location_name: Joi.string(),
-  end_time: Joi.date(),
-  image: Joi.string().uri(),
-  meetup_name: Joi.string(),
-  price: Joi.string(),
-  pending: Joi.boolean()
-});
+const { validate } = require('jsonschema');
+const schemas = require('../schemas');
+const { validationError } = require('../schemas/utils');
 
 class Events {
   constructor(db) {
@@ -38,15 +26,15 @@ class Events {
     });
   }
   create(event, pending) {
-    const result = Joi.validate(event, eventSchema);
-    if (!result.error) {
+    const result = validate(event, schemas.event);
+    if (result.errors.length === 0) {
       event.date = moment(event.date)._d;
       event.start_time = moment(event.start_time)._d;
       if (event.end_time) event.end_time = moment(event.end_time)._d;
       event.pending = pending;
       return this.events.insert(event);
     }
-    return Promise.reject(result.error);
+    return validationError(result.errors, 'event');
   }
   approve(_id) {
     return this.events.findOneAndUpdate({
@@ -58,14 +46,14 @@ class Events {
     });
   }
   update(_id, event) {
-    const result = Joi.validate(event, eventSchema);
-    if (!result.error) {
+    const result = validate(event, schemas.event);
+    if (result.errors.length === 0) {
       delete event._id;
       return this.events.findOneAndUpdate({
         _id: monk.id(_id)
       }, event);
     }
-    return Promise.reject(result.error);
+    return validationError(result.errors, 'event');
   }
   delete(_id) {
     return this.events.findOneAndDelete({

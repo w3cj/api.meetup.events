@@ -24,6 +24,8 @@ describe('meetup.events', () => {
       });
   });
 
+  const now = new Date();
+
   it('should create a new event', (done) => {
     request(app)
       .post('/api/v1/events')
@@ -32,9 +34,9 @@ describe('meetup.events', () => {
         title: '(Denver) Java Study Group',
         description: '<p><span>Come on everyone, let\'s work and learn!!</span> <br></p>',
         image: 'https://secure.meetupstatic.com/photos/event/b/6/b/4/global_431686772.jpeg',
-        date: '2017-06-20',
-        start_time: '2017-06-20 18:00',
-        end_time: '2017-06-20 20:00',
+        date: now,
+        start_time: now,
+        end_time: now,
         url: 'https://www.meetup.com/Women-Who-Code-Boulder-Denver/events/237855725/',
         address: '1062 Delaware Street, Denver, CO',
         location_name: 'Galvanize'
@@ -58,9 +60,9 @@ describe('meetup.events', () => {
           title: '(Denver) Java Study Group',
           description: '<p><span>Come on everyone, let\'s work and learn!!</span> <br></p>',
           image: 'https://secure.meetupstatic.com/photos/event/b/6/b/4/global_431686772.jpeg',
-          date: '2017-06-20T06:00:00.000Z',
-          start_time: '2017-06-21T00:00:00.000Z',
-          end_time: '2017-06-21T02:00:00.000Z',
+          date: now.toISOString(),
+          start_time: now.toISOString(),
+          end_time: now.toISOString(),
           url: 'https://www.meetup.com/Women-Who-Code-Boulder-Denver/events/237855725/',
           address: '1062 Delaware Street, Denver, CO',
           location_name: 'Galvanize'

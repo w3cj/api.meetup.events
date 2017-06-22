@@ -14,11 +14,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => {
-  res.json({
-    message: '🏡'
-  });
-});
+app.use(express.static('doc'));
 
 app.use(checkTokenSetUser);
 

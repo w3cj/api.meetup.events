@@ -1,0 +1,41 @@
+[
+  {
+    "_id": "594b65fa11ecf100c5972d7f",
+    "title": "Denver Vue meetup!",
+    "description": "<p><b>First VueConf 2017 recap!</b></p>",
+    "date": "2017-06-27T00:00:00.000Z",
+    "start_time": "2017-06-27T00:00:00.000Z",
+    "end_time": "2017-06-27T01:30:00.000Z",
+    "url": "https://www.meetup.com/Denver-Vue-js-Meetup/events/240392390/",
+    "address": "1644 Platte St., Denver, CO",
+    "location_name": "Galvanize",
+    "meetup_name": "Denver Vue.js Meetup",
+    "pending": false
+  },
+  {
+    "_id": "594b6a1202966900ba6df46c",
+    "title": "Michael Feathers: Hierarchies of Stability - Robust Systems and Fragile Code",
+    "description": "<p>The spectrum of languages we can choose from has never been wider. We can work in languages like Haskell and Elm that push forward with static verification and ones like Python, Ruby, and Javascript that make little to no attempt to provide static typing. Both classes of languages are used effectively in production, and that should make us suspicious about the claim that static typing is necessary for safety.</p> <p>In this talk, we will examine a model of safety that borrows from Nassim Nicolas Taleb’s view of fragility, robustness, and antifragility and consider whether we can make safer systems with fragile parts.</p> <p><br/><img src=\"https://secure.meetupstatic.com/photos/event/d/4/0/6/600_461934278.jpeg\" /></p> <p>Guest Speaker: Thought leader, agilist, and author of the seminal work Working Effectively With Legacy Code, Michael Feathers is a frequent presenter at national and international conferences. He is the Founder and Director of R7K Research &amp; Conveyance, a company specializing in software and organization design. Prior to forming R7K, Michael was the Chief Scientist of Obtiva and a consultant with Object Mentor International. Over the past 20 years he has consulted with hundreds of organizations, supporting them with general software design issues, process change and code revitalization. </p> ",
+    "date": "2017-06-23T00:00:00.000Z",
+    "start_time": "2017-06-23T00:00:00.000Z",
+    "end_time": null,
+    "url": "https://www.meetup.com/rmsoftwarecraftsmanship/events/240731353/",
+    "address": "1601 Wewatta St, suite 700 , Denver, CO",
+    "location_name": "ProtectWise",
+    "meetup_name": "Rocky Mountain Software Craftsmanship",
+    "pending": false
+  },
+  {
+    "_id": "594b6a1d02966900ba6df46d",
+    "title": "Robotics & AI \"Happy Hour\"",
+    "description": "<p>Come join us for a cocktail or beer, and meet like-minded individuals, whilst going over your latest projects, problems, or predator drone — or just catch up on the morals in question in a quickly raveling future. Bring a friend to help us grow this group!</p> ",
+    "date": "2017-06-23T00:00:00.000Z",
+    "start_time": "2017-06-23T00:00:00.000Z",
+    "end_time": "2017-06-23T02:00:00.000Z",
+    "url": "https://www.meetup.com/Denver-Is-For-Robots/events/240841190/",
+    "address": "233 E 7th Ave, Denver, CO",
+    "location_name": "Vesper Lounge",
+    "meetup_name": "Denver Is For Robots",
+    "pending": false
+  }
+]
