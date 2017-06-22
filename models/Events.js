@@ -7,10 +7,10 @@ const eventSchema = Joi.object().keys({
   description: Joi.string().required(),
   date: Joi.date().required(),
   start_time: Joi.date().required(),
-  end_time: Joi.date().required(),
   url: Joi.string().uri().required(),
   address: Joi.string().required(),
   location_name: Joi.string().required(),
+  end_time: Joi.date(),
   image: Joi.string().uri(),
   meetup_name: Joi.string(),
   price: Joi.string(),
@@ -42,7 +42,7 @@ class Events {
     if (!result.error) {
       event.date = moment(event.date)._d;
       event.start_time = moment(event.start_time)._d;
-      event.end_time = moment(event.end_time)._d;
+      if (event.end_time) event.end_time = moment(event.end_time)._d;
       event.pending = pending;
       return this.events.insert(event);
     }
