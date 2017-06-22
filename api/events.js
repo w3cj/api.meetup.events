@@ -18,14 +18,14 @@ router.get('/upcoming', (req, res) => {
 
 router.post('/', (req, res, next) => {
   Events
-    .create(req.body, !!req.user)
+    .create(req.body, !req.user)
     .then(event => res.json(event))
     .catch(next);
 });
 
 router.post('/url', (req, res, next) => {
   getMeetup(req.body.url)
-    .then(event => Events.create(event, !!req.user))
+    .then(event => Events.create(event, !req.user))
     .then(event => res.json(event))
     .catch(next);
 });

@@ -20,7 +20,7 @@ const eventSchema = Joi.object().keys({
 class Events {
   constructor(db) {
     this.events = db.get('events');
-    this.events.createIndex('url', { unique: true });
+    this.events.createIndex({ url: 1 }, { unique: true });
   }
   getUpcoming() {
     return this.events.find({
