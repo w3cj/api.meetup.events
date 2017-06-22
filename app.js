@@ -7,6 +7,8 @@ const app = express();
 const auth = require('./auth');
 const api = require('./api');
 
+const { checkTokenSetUser } = require('./lib/auth');
+
 app.use(helmet());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -17,6 +19,8 @@ app.get('/', (req, res) => {
     message: '🏡'
   });
 });
+
+app.use(checkTokenSetUser);
 
 app.use('/auth', auth);
 app.use('/api/v1', api);
