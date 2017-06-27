@@ -14,7 +14,8 @@ class Events {
     return this.events.find({
       date: {
         $gte: moment().endOf('day')._d
-      }
+      },
+      pending: false
     });
   }
   getToday() {
@@ -22,7 +23,13 @@ class Events {
       date: {
         $gte: moment().startOf('day')._d,
         $lt: moment().endOf('day')._d
-      }
+      },
+      pending: false
+    });
+  }
+  suggested() {
+    return this.events.find({
+      pending: true
     });
   }
   create(event, pending) {

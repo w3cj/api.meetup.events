@@ -17,6 +17,18 @@ router.get('/', (req, res) => {
 });
 
 /**
+ * @api {get} /events/suggested Get all suggested events
+ * @apiName GetSuggestedEvents
+ * @apiGroup Events
+ * @apiExample {json=../schemas/examples/eventArray.json} apiSuccessExample Response JSON
+ */
+router.get('/suggested', (req, res) => {
+  Events
+    .suggested()
+    .then(events => res.json(events));
+});
+
+/**
  * @api {get} /events/upcoming Get all upcoming events
  * @apiName GetUpcomingEvents
  * @apiGroup Events
