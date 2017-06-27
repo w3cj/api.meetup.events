@@ -13,7 +13,7 @@ class Events {
   getUpcoming() {
     return this.events.find({
       date: {
-        $gte: moment().endOf('day')._d
+        $gt: moment().endOf('day')._d
       },
       pending: false
     });
@@ -22,7 +22,7 @@ class Events {
     return this.events.find({
       date: {
         $gte: moment().startOf('day')._d,
-        $lt: moment().endOf('day')._d
+        $lte: moment().endOf('day')._d
       },
       pending: false
     });
