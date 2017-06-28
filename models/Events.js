@@ -10,19 +10,21 @@ class Events {
     this.events = db.get('events');
     this.events.createIndex({ url: 1 }, { unique: true });
   }
-  getUpcoming() {
+  getUpcoming(offset = 6) {
     return this.events.find({
       date: {
-        $gt: moment().endOf('day')._d
+        $gt: moment.utc().endOf('day').add(offset, 'hours')._d
       },
       pending: false
     });
   }
-  getToday() {
+  getToday(offset = 6) {
+    const $gte = moment.utc().startOf('day').add(offset, 'hours')._d;
+    const $lte = moment.utc().endOf('day').add(offset, 'hours')._d;
     return this.events.find({
       date: {
-        $gte: moment().startOf('day')._d,
-        $lte: moment().endOf('day')._d
+        $gte,
+        $lte,
       },
       pending: false
     });
@@ -35,9 +37,9 @@ class Events {
   create(event, pending) {
     const result = validate(event, schemas.event);
     if (result.errors.length === 0) {
-      event.date = moment(event.date)._d;
-      event.start_time = moment(event.start_time)._d;
-      if (event.end_time) event.end_time = moment(event.end_time)._d;
+      event.date = moment.utc(event.date)._d;
+      event.start_time = moment.utc(event.start_time)._d;
+      if (event.end_time) event.end_time = moment.utc(event.end_time)._d;
       event.pending = pending;
       return this.events.insert(event);
     }

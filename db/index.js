@@ -1,4 +1,6 @@
 const monk = require('monk');
 
-const db = monk(process.env.MONGO_URI || 'localhost/events');
+require('dotenv').config();
+
+const db = monk(process.env.MONGODB_URI || 'localhost/events');
 module.exports = db;

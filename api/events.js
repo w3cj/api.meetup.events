@@ -12,7 +12,7 @@ const { getMeetup } = require('../lib/meetup');
  */
 router.get('/', (req, res) => {
   Events
-    .getToday()
+    .getToday(req.query.offset)
     .then(events => res.json(events));
 });
 
@@ -36,7 +36,7 @@ router.get('/suggested', (req, res) => {
  */
 router.get('/upcoming', (req, res) => {
   Events
-    .getUpcoming()
+    .getUpcoming(req.query.offset)
     .then(events => res.json(events));
 });
 
