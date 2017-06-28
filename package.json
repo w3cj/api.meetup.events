@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "test": "mongo events-test --eval 'db.dropDatabase()' && MONGO_URI=localhost/events-test mocha",
     "doc": "node tasks/jsonifySchemas.js && apidoc -i api/ -o doc/",
-    "deploy": "now -e MONGO_URI=@meetup-events-mongo -e ADMIN_PASSWORD=@meetup-events-password -e TOKEN_SECRET=@meetup-events-token-secret -e MEETUP_API_KEY=@meetup-events-meetup-api-key"
+    "deploy": "now -e MONGODB_URI=@meetup-events-mongo -e ADMIN_PASSWORD=@meetup-events-password -e TOKEN_SECRET=@meetup-events-token-secret -e MEETUP_API_KEY=@meetup-events-meetup-api-key"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
