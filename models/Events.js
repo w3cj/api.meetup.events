@@ -13,14 +13,14 @@ class Events {
   getUpcoming(offset = 6) {
     return this.events.find({
       date: {
-        $gt: moment.utc().endOf('day').add(offset, 'hours')._d
+        $gt: moment.utc().endOf('day').subtract(offset, 'hours')._d
       },
       pending: false
     });
   }
   getToday(offset = 6) {
-    const $gte = moment.utc().startOf('day').add(offset, 'hours')._d;
-    const $lte = moment.utc().endOf('day').add(offset, 'hours')._d;
+    const $gte = moment.utc().startOf('day').subtract(offset, 'hours')._d;
+    const $lte = moment.utc().endOf('day').subtract(offset, 'hours')._d;
     return this.events.find({
       date: {
         $gte,
